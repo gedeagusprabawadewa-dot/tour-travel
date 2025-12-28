@@ -11,7 +11,7 @@ const TESTIMONIALS = [
     id: 1,
     name: 'Sarah Miller',
     location: 'London, UK',
-    avatar: 'https://picsum.photos/seed/sarah/150/150',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80',
     quote: "BaliQuest made our honeymoon absolutely seamless. The real-time itinerary tracking and the direct WhatsApp link to our driver Wayan was a lifesaver in Ubud's busy streets.",
     rating: 5
   },
@@ -19,7 +19,7 @@ const TESTIMONIALS = [
     id: 2,
     name: 'David Chen',
     location: 'Singapore',
-    avatar: 'https://picsum.photos/seed/david/150/150',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80',
     quote: "The 5-day explorer package was incredible value. I loved how the app handled all our transfers between Seminyak and the islands. Truly a worry-free luxury experience.",
     rating: 5
   },
@@ -27,7 +27,7 @@ const TESTIMONIALS = [
     id: 3,
     name: 'Elena Rodriguez',
     location: 'Madrid, Spain',
-    avatar: 'https://picsum.photos/seed/elena/150/150',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80',
     quote: "The digital memory book feature is pure magic. It captured the spiritual essence of our temple tours perfectly. I've already shared my summary with all my friends!",
     rating: 5
   }
@@ -64,6 +64,20 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-[#FDFCFB]">
+      {/* Global Floating WhatsApp Button */}
+      <a 
+        href="https://wa.me/628123456789" 
+        target="_blank" 
+        rel="noreferrer"
+        className="fixed bottom-6 right-6 z-[150] w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center text-white shadow-2xl shadow-emerald-500/40 hover:scale-110 hover:rotate-6 transition-all active:scale-95 group"
+        aria-label="Contact support on WhatsApp"
+      >
+        <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
+        <div className="absolute right-full mr-4 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
+          Quick Support
+        </div>
+      </a>
+
       {/* Premium Navbar */}
       <header className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-xl border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
@@ -97,9 +111,9 @@ function AppContent() {
                 <div className="max-w-7xl mx-auto">
                   <div className="relative h-[450px] sm:h-[600px] rounded-[32px] sm:rounded-[48px] overflow-hidden shadow-2xl">
                     <img 
-                      src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1600&q=80" 
+                      src="https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1600&q=80" 
                       className="w-full h-full object-cover" 
-                      alt="Bali Landscape"
+                      alt="Uluwatu Cliff Bali"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
                     
@@ -148,10 +162,10 @@ function AppContent() {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                   {[
-                    { title: 'Spiritual Temples', img: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=400&q=80', price: '45', count: '12 Tours' },
-                    { title: 'Hidden Waterfalls', img: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=400&q=80', price: '35', count: '8 Tours' },
-                    { title: 'Surf & Coast', img: 'https://images.unsplash.com/photo-1537519646099-335112f03225?auto=format&fit=crop&w=400&q=80', price: '55', count: '15 Tours' },
-                    { title: 'Active Volcanoes', img: 'https://images.unsplash.com/photo-1542125387-c71274d94f0a?auto=format&fit=crop&w=400&q=80', price: '80', count: '5 Tours' },
+                    { title: 'Spiritual Temples', img: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80', price: '45', count: '12 Tours' },
+                    { title: 'Hidden Waterfalls', img: 'https://images.unsplash.com/photo-1536431311719-398b6704d4cc?auto=format&fit=crop&w=600&q=80', price: '35', count: '8 Tours' },
+                    { title: 'Surf & Coast', img: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=600&q=80', price: '55', count: '15 Tours' },
+                    { title: 'Active Volcanoes', img: 'https://images.unsplash.com/photo-1542125387-c71274d94f0a?auto=format&fit=crop&w=600&q=80', price: '80', count: '5 Tours' },
                   ].map((cat, i) => (
                     <div key={i} className="group relative h-64 sm:h-96 rounded-[24px] sm:rounded-[32px] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
                       <img src={cat.img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={cat.title} />
@@ -205,12 +219,12 @@ function AppContent() {
                   <div className="relative mt-8 lg:mt-0">
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
                       <div className="space-y-3 sm:space-y-4 pt-8 sm:pt-12">
-                         <img src="https://images.unsplash.com/photo-1573108724029-4c46571d6490?auto=format&fit=crop&w=400&q=80" className="rounded-[20px] sm:rounded-[32px] w-full h-48 sm:h-64 object-cover shadow-2xl" alt="Package 1" />
-                         <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=400&q=80" className="rounded-[20px] sm:rounded-[32px] w-full h-64 sm:h-80 object-cover shadow-2xl" alt="Package 2" />
+                         <img src="https://images.unsplash.com/photo-1573108724029-4c46571d6490?auto=format&fit=crop&w=400&q=80" className="rounded-[20px] sm:rounded-[32px] w-full h-48 sm:h-64 object-cover shadow-2xl" alt="Bali Villa Pool" />
+                         <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=400&q=80" className="rounded-[20px] sm:rounded-[32px] w-full h-64 sm:h-80 object-cover shadow-2xl" alt="Bali Temple Gate" />
                       </div>
                       <div className="space-y-3 sm:space-y-4">
-                         <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=400&q=80" className="rounded-[20px] sm:rounded-[32px] w-full h-64 sm:h-80 object-cover shadow-2xl" alt="Package 3" />
-                         <img src="https://images.unsplash.com/photo-1537519646099-335112f03225?auto=format&fit=crop&w=400&q=80" className="rounded-[20px] sm:rounded-[32px] w-full h-48 sm:h-64 object-cover shadow-2xl" alt="Package 4" />
+                         <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=400&q=80" className="rounded-[20px] sm:rounded-[32px] w-full h-64 sm:h-80 object-cover shadow-2xl" alt="Bali River" />
+                         <img src="https://images.unsplash.com/photo-1537519646099-335112f03225?auto=format&fit=crop&w=400&q=80" className="rounded-[20px] sm:rounded-[32px] w-full h-48 sm:h-64 object-cover shadow-2xl" alt="Bali Coast" />
                       </div>
                     </div>
                     {/* Floating Badge */}
@@ -271,7 +285,7 @@ function AppContent() {
               <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 border-t border-slate-100">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 items-center">
                   <div className="relative">
-                    <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80" className="rounded-[32px] sm:rounded-[48px] shadow-2xl object-cover h-[350px] sm:h-[500px] w-full" alt="The BaliQuest Team" />
+                    <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80" className="rounded-[32px] sm:rounded-[48px] shadow-2xl object-cover h-[350px] sm:h-[500px] w-full" alt="Ketut Ardhana Guide" />
                     <div className="absolute -bottom-6 sm:-bottom-10 right-4 sm:-right-10 bg-white p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] shadow-xl border border-slate-50 max-w-[240px] sm:max-w-xs">
                       <p className="text-slate-500 italic text-xs sm:text-sm font-medium leading-relaxed">
                         "We started BaliQuest to bridge the gap between digital travelers and the deep cultural heartbeat of our island."
