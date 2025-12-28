@@ -37,6 +37,7 @@ export interface DriverInfo {
   photo: string;
   plate: string;
   whatsapp: string;
+  availability?: 'Available' | 'On Another Tour';
 }
 
 export interface Booking {

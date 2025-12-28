@@ -36,6 +36,7 @@ const TESTIMONIALS = [
 function AppContent() {
   const [bookings, setBookings] = useState<Booking[]>(INITIAL_BOOKINGS);
   const [activeCategory, setActiveCategory] = useState<'ALL' | 'BUNDLE' | 'SINGLE'>('ALL');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const updateBooking = (updatedBooking: Booking) => {
@@ -60,7 +61,10 @@ function AppContent() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false);
   };
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="min-h-screen bg-[#FDFCFB]">
@@ -79,7 +83,7 @@ function AppContent() {
       </a>
 
       {/* Premium Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-xl border-b border-slate-100">
+      <header className="fixed top-0 left-0 right-0 z-[160] bg-white/80 backdrop-blur-xl border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-orange-500/20 group-hover:rotate-6 transition-transform">
@@ -97,7 +101,40 @@ function AppContent() {
 
           <div className="flex items-center gap-2 sm:gap-4">
             <button className="hidden sm:block text-sm font-bold text-slate-500 px-4 py-2 hover:bg-slate-50 rounded-xl transition-colors">Login</button>
-            <button onClick={() => scrollToSection('itinerary')} className="bg-slate-900 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-xl shadow-slate-900/10 hover:bg-orange-600 transition-all whitespace-nowrap">My Itinerary</button>
+            <button onClick={() => scrollToSection('itinerary')} className="hidden sm:block bg-slate-900 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-xl shadow-slate-900/10 hover:bg-orange-600 transition-all whitespace-nowrap">My Itinerary</button>
+            
+            {/* Burger Button */}
+            <button 
+              onClick={toggleMenu}
+              className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 p-2 rounded-xl bg-slate-50 text-slate-900 active:scale-90 transition-all"
+              aria-label="Toggle Menu"
+            >
+              <span className={`w-6 h-0.5 bg-current rounded-full transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`w-6 h-0.5 bg-current rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`w-6 h-0.5 bg-current rounded-full transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`lg:hidden fixed inset-x-0 top-[56px] sm:top-[64px] bottom-0 bg-white/95 backdrop-blur-2xl transition-all duration-500 ease-in-out transform ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
+          <div className="p-6 flex flex-col gap-6 h-full overflow-y-auto">
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Discovery</span>
+              <button onClick={() => scrollToSection('experiences')} className="text-2xl font-black text-slate-900 text-left hover:text-orange-500 transition-colors">Experiences</button>
+              <button onClick={() => scrollToSection('packages')} className="text-2xl font-black text-slate-900 text-left hover:text-orange-500 transition-colors">Packages</button>
+            </div>
+            
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Personal</span>
+              <button onClick={() => scrollToSection('itinerary')} className="text-2xl font-black text-slate-900 text-left hover:text-orange-500 transition-colors">My Itinerary</button>
+              <button onClick={() => scrollToSection('about')} className="text-2xl font-black text-slate-900 text-left hover:text-orange-500 transition-colors">About Us</button>
+            </div>
+
+            <div className="mt-auto pb-10 space-y-4">
+              <button className="w-full bg-slate-900 text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl">Login</button>
+              <p className="text-center text-[10px] font-black text-slate-400 uppercase tracking-widest">© 2024 BaliQuest</p>
+            </div>
           </div>
         </div>
       </header>

@@ -16,7 +16,8 @@ export const INITIAL_BOOKINGS: Booking[] = [
       name: 'Wayan Sudarsana',
       photo: 'https://images.unsplash.com/photo-1590424753858-394a127809a1?auto=format&fit=crop&w=200&h=200&q=80',
       plate: 'DK 1234 ABC',
-      whatsapp: 'https://wa.me/628123456789'
+      whatsapp: 'https://wa.me/628123456789',
+      availability: 'Available'
     },
     pois: [
       { id: 'p1', name: 'Tegalalang Rice Terrace', isCompleted: true, arrivedAt: '09:15', completedAt: '10:30' },
