@@ -1,0 +1,7 @@
+{
+  "name": "BaliQuest Service Manager",
+  "description": "A professional travel service management platform for single tours, activities, and multi-day packages with interactive checklists and memory generation.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
